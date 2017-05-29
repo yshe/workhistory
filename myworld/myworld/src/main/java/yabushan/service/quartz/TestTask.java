@@ -27,7 +27,8 @@ public class TestTask extends QuartzJobBean{
     private static String[] ctx= new String[] { "/applicationContext.xml" };  
     
     public void work()  
-       {     log.info("Hello quartz"+new Date());  
+       {    
+    	log.info("Hello quartz"+new Date());  
        log.error("err>>>>>>>>>>>>>>");
        log.debug("debug>>>>>>>>>>>>>>>>>>>>");
            System.out.println("Quartz的任务调度！！！"+(new Date()).toString());  

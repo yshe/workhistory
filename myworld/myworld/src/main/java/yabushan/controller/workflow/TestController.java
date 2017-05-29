@@ -31,7 +31,7 @@ public class TestController {
 	@Resource(name="variablesServiceImpl")
 	private VariablesService variablesService;
 	
-	@RequestMapping(value="/testFlowService.do", method = RequestMethod.GET)
+	@RequestMapping(value="/testFlowService", method = RequestMethod.GET)
 	public void testService(){
 		System.out.println(commentService);
 		System.out.println(formService);

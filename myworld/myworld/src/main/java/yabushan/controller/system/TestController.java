@@ -34,7 +34,7 @@ public class TestController {
 	@Resource
 	private IdentityService identityService;
 	
-	@RequestMapping(value="/testService.do", method = RequestMethod.POST)
+	@RequestMapping(value="/testService", method = RequestMethod.POST)
 	public void testService(){
 		System.out.println(repositoryService.toString());
 		System.out.println(runtimeService.toString());

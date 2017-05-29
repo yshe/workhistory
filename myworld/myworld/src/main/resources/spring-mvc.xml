@@ -11,6 +11,7 @@
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 	<context:component-scan base-package="yabushan.controller" />
+	<context:component-scan base-package="org.activiti.rest" />
 	<!--避免IE执行AJAX时，返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
@@ -46,5 +47,25 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />  
     </bean> 
+    <!--加入Spring Activiti-Modeler的运行配置 -->
+	<context:component-scan base-package="org.activiti.rest.editor" />
+	<context:component-scan base-package="org.activiti.rest.diagram" />
+	
+    <context:annotation-config />    
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler/>
+	<!--对静态资源文件的访问 -->
+	<mvc:resources mapping="/static/images/**" location="/static/images/" />
+	<mvc:resources mapping="/static/js/**" location="/static/js/" />
+	<mvc:resources mapping="/static/css/**" location="/static/css/" />
+	<mvc:resources location="/activiti-editor/" mapping="/activiti-editor/**"/>
+	<!-- 以下为SpringMVC配置 -->
+	<!-- <mvc:annotation-driven> 返回json数据，@response使用 <mvc:message-converters 
+		register-defaults="true"> <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> 
+		<property name="supportedMediaTypes"> <list> <value>text/html;charset=UTF-8</value> 
+		<value>application/json;charset=UTF-8</value> </list> </property> </bean> 
+		</mvc:message-converters> </mvc:annotation-driven> -->
+	<bean id="defaultJsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+	
 
 </beans>

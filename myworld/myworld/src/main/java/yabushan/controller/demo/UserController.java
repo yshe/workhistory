@@ -35,7 +35,7 @@ public class UserController {
 	}
 
 
-	@RequestMapping(value="/showuser.do", method = RequestMethod.POST)
+	@RequestMapping(value="/showuser", method = RequestMethod.POST)
 	public String toIndex(HttpServletRequest request,Model model){
 		User userLogin=new User();
 		userLogin.setUsername(request.getParameter("username"));
@@ -58,7 +58,7 @@ public class UserController {
 	
 	
 	
-	@RequestMapping(value="/register.do",method= RequestMethod.POST)
+	@RequestMapping(value="/register",method= RequestMethod.POST)
 	public String registerIndex(HttpServletRequest request,Model model){
 		
 		//ModelAndView mav=new ModelAndView();

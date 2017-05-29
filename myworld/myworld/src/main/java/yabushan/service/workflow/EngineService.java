@@ -11,6 +11,8 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * 工作流服务类获取
  * @author yabushan
@@ -40,7 +42,12 @@ public class EngineService {
 	@Resource
 	private FormService formService;
 	
+	@Resource
+	private ObjectMapper objectMapper;
 	
+	public ObjectMapper getObjectMapper(){
+		return objectMapper;
+	}
 
 
 

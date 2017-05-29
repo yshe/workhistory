@@ -10,6 +10,10 @@
                         http://www.springframework.org/schema/mvc  
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 <!-- activiti相关 -->
+
+<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+<!--加入Spring Activiti-Modeler的运行配置 -->
+	<context:component-scan base-package="org.activiti" />
 	
 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
 		<property name="dataSource" ref="dataSource" />
@@ -37,6 +41,5 @@
 	<bean id="formService" factory-bean="processEngine"  
         factory-method="getFormService" />  
     
-	
 
 </beans>
